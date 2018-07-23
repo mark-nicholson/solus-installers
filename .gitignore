@@ -50,3 +50,15 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Infrastructure stuff
+common
+Makefile
+Makefile.iso
+Makefile.common
+
+# Solus stuff
+*.eopkg
+
+
+x48/x48
