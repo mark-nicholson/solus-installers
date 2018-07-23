@@ -1,0 +1,13 @@
+diff --git a/foo2zjs/Makefile b/foo2zjs/Makefile
+index ee3b073..5147bd5 100644
+--- a/foo2zjs/Makefile
++++ b/foo2zjs/Makefile
+@@ -1095,7 +1095,7 @@ install-hotplug-osx:
+ install-filter:
+ 	if [ "$(LAVAPJL_LINK)" != "" ]; then \
+ 	    $(INSTALL) -d $(CUPS_SERVERBIN)/filter; \
+-	    ln -sf $(BIN)/command2foo2lava-pjl $(LAVAPJL_LINK); \
++	    ln -sf /usr/bin/command2foo2lava-pjl $(LAVAPJL_LINK); \
+ 	fi
+ 
+ CUPSDCONF=/etc/cups/cupsd.conf
