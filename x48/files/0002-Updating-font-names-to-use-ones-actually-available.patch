@@ -1,0 +1,54 @@
+From dcc239bbcbc68a7fa432ddb437781d0dbf1a7d47 Mon Sep 17 00:00:00 2001
+From: Mark Nicholson <nicholson.mark@gmail.com>
+Date: Mon, 23 Jul 2018 08:51:37 -0700
+Subject: [PATCH 2/2] Updating font names to use ones actually available.   -
+ must use raster fonts -- solus only supports TTF and the     bare minimum
+ X-raster fonts.
+
+Signed-off-by: Mark Nicholson <nicholson.mark@gmail.com>
+---
+ src/X48.ad   | 8 ++++----
+ src/X48.ad.h | 8 ++++----
+ 2 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/src/X48.ad b/src/X48.ad
+index c245ea4..61b8673 100644
+--- a/src/X48.ad
++++ b/src/X48.ad
+@@ -30,10 +30,10 @@
+ 
+ *useXShm:		True
+ 
+-*smallLabelFont:	-*-fixed-bold-r-normal-*-14-*-*-*-*-*-iso8859-1
+-*mediumLabelFont:	-*-fixed-bold-r-normal-*-15-*-*-*-*-*-iso8859-1
+-*largeLabelFont:	-*-fixed-medium-r-normal-*-20-*-*-*-*-*-iso8859-1
+-*connectionFont:	-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-iso8859-1
++*smallLabelFont:	fixed
++*mediumLabelFont:	fixed
++*largeLabelFont:	fixed
++*connectionFont:	fixed
+ 
+ !
+ ! informative stuff
+diff --git a/src/X48.ad.h b/src/X48.ad.h
+index f097d94..c845ec9 100644
+--- a/src/X48.ad.h
++++ b/src/X48.ad.h
+@@ -4,10 +4,10 @@
+ "*gray:			False",
+ "*monoIcon:		False",
+ "*useXShm:		True",
+-"*smallLabelFont:	-*-fixed-bold-r-normal-*-14-*-*-*-*-*-iso8859-1",
+-"*mediumLabelFont:	-*-fixed-bold-r-normal-*-15-*-*-*-*-*-iso8859-1",
+-"*largeLabelFont:	-*-fixed-medium-r-normal-*-20-*-*-*-*-*-iso8859-1",
+-"*connectionFont:	-*-helvetica-medium-r-normal-*-12-*-*-*-*-*-iso8859-1",
++"*smallLabelFont:	fixed",
++"*mediumLabelFont:	fixed",
++"*largeLabelFont:	fixed",
++"*connectionFont:	fixed",
+ "*verbose:		False",
+ "*quiet:			False",
+ "*printVersion:		False",
+-- 
+2.18.0
+

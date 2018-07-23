@@ -1,0 +1,47 @@
+diff --git a/Makefile.am b/Makefile.am
+index 70335a4..2b3b4b8 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -8,10 +8,10 @@ EXTRA_DIST=rpm/x48.spec \
+  debian/changelog debian/compat debian/control debian/copyright \
+  debian/dirs debian/docs debian/menu debian/README.Debian debian/rules
+ 
+-X48 : src/X48.ad
+-	cp $< $@
++#X48 : src/X48.ad
++#	cp $< $@
+ 
+-appdefault_DATA = X48
++#appdefault_DATA = X48
+ 
+-DISTCHECK_CONFIGURE_FLAGS = --with-appdefaultdir='$${datadir}/X11/app-defaults'
++#DISTCHECK_CONFIGURE_FLAGS = --with-appdefaultdir='$${datadir}/X11/app-defaults'
+ 
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 09037e1..a69b23f 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -1,7 +1,7 @@
+ 
+ ## Process this file with automake to produce Makefile.in
+ 
+-bin_PROGRAMS = x48 dump2rom mkcard checkrom
++bin_PROGRAMS = x48 x48-dump2rom x48-mkcard x48-checkrom
+ 
+ BITMAPS = bitmaps/A.h bitmaps/B.h bitmaps/C.h bitmaps/D.h bitmaps/E.h bitmaps/F.h \
+           bitmaps/G.h bitmaps/H.h bitmaps/I.h bitmaps/J.h bitmaps/K.h \
+@@ -51,11 +51,11 @@ x48_SOURCES = actions.c debugger.c device.c \
+ 	      $(BITMAPS)
+ 
+ 
+-dump2rom_SOURCES = dump2rom.c
++x48_dump2rom_SOURCES = dump2rom.c
+ 
+-mkcard_SOURCES = mkcard.c
++x48_mkcard_SOURCES = mkcard.c
+ 
+-checkrom_SOURCES = checkrom.c romio.c
++x48_checkrom_SOURCES = checkrom.c romio.c
+ 
+ man1_MANS = x48.man
+ 

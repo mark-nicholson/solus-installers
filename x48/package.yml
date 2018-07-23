@@ -1,0 +1,33 @@
+name       : x48
+version    : 0.6.4
+release    : 2
+source     :
+    - https://sourceforge.net/projects/x48.berlios/files/x48-0.6.4.tar.bz2 : dd42fb3dfde860abb758f8e6d5ccd01845bbf0dcd808b87786eec3ef7091067f
+    - https://sourceforge.net/projects/x48.berlios/files/gxrom-r.bz2 : f89eb7bf979e62db53d436e3218b963c693f66c52797218c01d6552f1bbe014f
+    - https://sourceforge.net/projects/x48.berlios/files/sxrom-j.bz2 : abd7f59cc07dcd22d1ac62bff901172d37e1ea4f01e1afdd099aa4bcf77e14a8
+license    : GPL-2.0-or-later
+component  : desktop
+summary    : Emulator for HP-48 series calculators
+description: |
+    Emulation tool for HP-48 series calculator ROMs.
+builddeps  :
+    - pkgconfig(xt)
+    - libxext-devel
+setup      : |
+    %patch -p1 < $pkgfiles/0001-Adjusting-the-source-base-as-the-current-toolchains-.patch
+    %patch -p1 < $pkgfiles/0002-Updating-font-names-to-use-ones-actually-available.patch
+    %patch -p1 < $pkgfiles/0003-tweak.patch
+    ./autogen.sh 
+    %configure
+build      : |
+    %make -j1
+    bzcat $sources/gxrom-r.bz2 > $workdir/gxrom-r
+    bzcat $sources/sxrom-j.bz2 > $workdir/sxrom-j
+install    : |
+    %make_install -j1
+    install -D -m 00755 $pkgfiles/x48-bootstrap $installdir/usr/bin
+    install -D -m 00644 $workdir/gxrom-r $installdir/usr/share/x48/gxrom-r
+    install -D -m 00644 $workdir/sxrom-j $installdir/usr/share/x48/sxrom-j
+    install -D -m 00644 $pkgfiles/hp48_icon.png $installdir/usr/share/icons/x48.png
+    install -D -m 00644 $pkgfiles/x48.desktop $installdir/usr/share/applications/x48.desktop
+

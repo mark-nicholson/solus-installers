@@ -1,0 +1,27 @@
+From dd6c5844014a2a213c1e03374ca40fb82d91fd4b Mon Sep 17 00:00:00 2001
+From: Mark Nicholson <nicholson.mark@gmail.com>
+Date: Mon, 23 Jul 2018 08:48:48 -0700
+Subject: [PATCH 1/2] Adjusting the source base as the current toolchains don't
+ like the way the inlining of code is done.
+
+Signed-off-by: Mark Nicholson <nicholson.mark@gmail.com>
+---
+ src/emulate.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/emulate.c b/src/emulate.c
+index f72f5d5..b23ea84 100644
+--- a/src/emulate.c
++++ b/src/emulate.c
+@@ -695,7 +695,7 @@ decode_group_1()
+   }
+ }
+ 
+-inline int
++int
+ #ifdef __FunctionProto__
+ decode_8_thru_f(int op1)
+ #else
+-- 
+2.18.0
+

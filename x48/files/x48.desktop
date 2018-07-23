@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=x48
+Comment=HP48 Calculator
+Exec=x48
+Icon=x48
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Utility;Calculator;

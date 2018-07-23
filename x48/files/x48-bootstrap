@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+#  Initialization script to setup x48 calculator
+#
+
+DOT_HP48=~/.hp48
+
+ROM_URI=/usr/share/x48/gxrom-r
+
+echo ""
+read -n 2 -p "Which HP Calculator do you want: SX or GX (default): " KIND
+echo ""
+echo ""
+
+case ${KIND} in
+	s|S|sx|SX)
+		ROM_URI=/usr/share/x48/sxrom-j
+		;;
+	*)
+		;;
+esac
+
+# start fresh...
+if [ -e ${DOT_HP48} ]; then
+	mv ${DOT_HP48} ${DOT_HP48}_$$
+fi
+
+# Now, run the initializer
+#
+/usr/bin/x48 -initialize -rom ${ROM_URI}
+
+echo "Click the 'F' button on the X48 window to clear memory."
+echo "Then, close the X48 program."
+

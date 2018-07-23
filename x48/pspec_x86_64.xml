@@ -1,0 +1,43 @@
+<PISI>
+    <Source>
+        <Name>x48</Name>
+        <Packager>
+            <Name>Mark Nicholson</Name>
+            <Email>nicholson.mark@gmail.com</Email>
+        </Packager>
+        <License>GPL-2.0-or-later</License>
+        <PartOf>desktop</PartOf>
+        <Summary xml:lang="en">Emulator for HP-48 series calculators</Summary>
+        <Description xml:lang="en">Emulation tool for HP-48 series calculator ROMs.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://solus-project.com/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>x48</Name>
+        <Summary xml:lang="en">Emulator for HP-48 series calculators</Summary>
+        <Description xml:lang="en">Emulation tool for HP-48 series calculator ROMs.
+</Description>
+        <PartOf>desktop</PartOf>
+        <Files>
+            <Path fileType="executable">/usr/bin/x48</Path>
+            <Path fileType="executable">/usr/bin/x48-bootstrap</Path>
+            <Path fileType="executable">/usr/bin/x48-checkrom</Path>
+            <Path fileType="executable">/usr/bin/x48-dump2rom</Path>
+            <Path fileType="executable">/usr/bin/x48-mkcard</Path>
+            <Path fileType="data">/usr/share/applications/x48.desktop</Path>
+            <Path fileType="data">/usr/share/icons/x48.png</Path>
+            <Path fileType="man">/usr/share/man/man1/x48.1</Path>
+            <Path fileType="data">/usr/share/x48/gxrom-r</Path>
+            <Path fileType="data">/usr/share/x48/sxrom-j</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="2">
+            <Date>2018-07-23</Date>
+            <Version>0.6.4</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Mark Nicholson</Name>
+            <Email>nicholson.mark@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

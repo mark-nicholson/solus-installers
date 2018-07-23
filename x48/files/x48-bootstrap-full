@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+#  Initialization script to setup x48 calculator
+#
+
+DOT_HP48=~/.hp48
+
+ROM_URL=https://sourceforge.net/projects/x48.berlios/files/gxrom-r.bz2
+
+echo "Which HP Calculator do you want: SX or GX (default): "
+KIND=read
+
+case ${KIND} in
+	SX)
+		ROM_URL=https://sourceforge.net/projects/x48.berlios/files/sxrom-j.bz2
+		;;
+	*)
+		;;
+esac
+
+# simpler names
+ROM_ZIP=$(basename ${ROM_URL})
+ROM_ROM=$(basename -s bz2 ${ROM_URL})
+
+# start fresh...
+if [ -e ${DOT_HP48} ]; then
+	mv ${DOT_HP48} ${DOT_HP48}_$$
+fi
+
+# grab a reasonable ROM image
+rm -f /tmp/${ROM_ZIP}
+if [ -x /usr/bin/wget ]; then
+	cd /tmp && /usr/bin/wget ${ROM_URL}
+elif [ -x /usr/bin/curl ]; then
+	cd /tmp && /usr/bin/curl ${ROM_URL}
+else
+	echo "Hmm.  Cannot find wget or curl to download the ROM."
+	exit -1
+fi
+
+# unpack it
+bunzip /tmp/${ROM_ZIP}
+
+#
+# Now, run the initializer
+#
+/usr/bin/x48 -initialize -rom /tmp/${ROM_ROM}
+
+echo "Click the 'F' button on the X48 window to clear memory."
+echo "Then, close the X48 program."
+
+
